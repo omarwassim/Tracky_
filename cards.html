@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General section padding */
+section {
+    padding: 100px 200px;
+}
+
+/* Styles for the main title within the section */
+.title {
+    display: flex;
+    justify-content: center;
+    color: navy;
+    font-size: 2.2em;
+    font-weight: 800;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+
+/* Styles for the container of the cards */
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Styles for each individual card */
+.card {
+    width: 18em;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    background-color: #070738;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 5px;
+    transition: 0.7s ease;
+    text-decoration: none;
+}
+
+/* Hover/active effect for the card */
+.card:hover,
+.card.scrolled-into-view, /* For scroll animations, if implemented */
+.card.tapped /* For tap animations, if implemented */
+{
+    transform: scale(1.1);
+    /* Note: The original CSS has a text-shadow here, but it might not be visually ideal on the dark background */
+    text-shadow: 0 0 10px #0ef, 0 0 20px #0ef, 0 0 40px #0ef, 0 0 80px #0ef, 0 0 160px #0ef;
+}
+
+/* Styles for the paragraph inside the card (service name) */
+.card > p {
+    color: darkblue;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    /* Special text effect for the paragraph */
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    background-image: linear-gradient(#0ef, #0ef);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -600px 0;
+    transition: background-position 1s, text-shadow 1s;
+    transition-delay: 0.6s, 0s;
+}
+
+/* Hover/active effect for the paragraph text effect */
+.card > p:hover,
+.card > p.scrolled-into-view, /* For scroll animations, if implemented */
+.card > p.tapped /* For tap animations, if implemented */
+{
+    transition: background-position 1s, text-shadow 1s;
+    transition-delay: 0s, 0.5s;
+    background-position: 0 0;
+    text-shadow: 0 0 10px #0ef, 0 0 20px #0ef, 0 0 40px #0ef, 0 0 80px #0ef, 0 0 160px #0ef;
+}
+
+/* Styles for the icon container div */
+.icon {
+    text-align: center;
+    color: #3a6cf4;
+    font-size: 8em; /* This font-size applies if the icon is text-based, but your HTML uses images */
+    /* The images inside .icon will have specific styles (width, padding) applied via inline styles in your HTML */
+}
+
+/* Media Queries for responsiveness (styles that change the layout for smaller screens) */
+
+/* For screens up to 1023px wide */
+@media (max-width: 1023px) {
+    section {
+        padding: 80px 20px; /* Adjusted padding */
+    }
+
+    .title {
+        font-size: 1.8em; /* Smaller title font */
+    }
+
+    .content {
+        align-items: center;
+        flex-direction: column; /* Cards stack vertically */
+    }
+}
+
+/* For screens up to 641px wide */
+@media (max-width: 641px) {
+    .title {
+        font-size: 1.8em; /* Title font size */
+    }
+
+    .content {
+        flex-direction: column; /* Ensure cards stack */
+        align-items: center;
+    }
+
+    .card {
+        width: 70%; /* Cards take more width relative to screen */
+        margin: 20px 0; /* Adjusted margins for vertical stacking */
+    }
+}
+
+/* For screens up to 300px wide */
+@media (max-width: 300px) {
+    .title {
+        font-size: 1.5em; /* Even smaller title font */
+    }
+
+    .card {
+        width: 60%; /* Further adjust card width */
+        margin: 5px 0; /* Tighter margins */
+    }
+}
+
+/* Animation for the 'tapped' state (used by .tapped class) */
+@keyframes tapEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Applies the tap animation */
+.tapped {
+    animation: tapEffect 0.5s ease;
+}
+
+/* Styles for the 'scrolled-into-view' state on devices that primarily use touch (no hover) */
+@media (hover: none) and (pointer: coarse) {
+    .card.scrolled-into-view {
+        transform: scale(1.1);
+        /* text-shadow from main .card rule applies */
+    }
+
+    .card p.scrolled-into-view {
+        background-position: 0 0;
+        text-shadow: 0 0 10px #0ef, 0 0 20px #0ef, 0 0 40px #0ef, 0 0 80px #0ef, 0 0 160px #0ef;
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="cards" id="services">
+        <h2 class="title">Services</h2>
+        <div class="content">
+            <div class="card">
+                <div class="icon"><img src="./images/ai.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>AI</p>
+            </div>    
+            <div class="card">
+                <div class="icon"><img src="./images/embedded.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Embedded Systems</p>
+            </div>    
+            <div class="card">
+                <div class="icon"><img src="./images/cyber-criminal (1).png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Cyber Security</p>
+            </div>    
+            <div class="card">
+                <div class="icon"><img src="./images/Backend.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Back End</p>
+            </div>          
+            <div class="card">
+                <div class="icon"><img src="./images/database-management.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Database</p>
+            </div>   
+            <div class="card">
+                <div class="icon"><img src="./images/development.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>mobile Application</p>
+            </div>    
+            <div class="card">
+                    <div class="icon"><img src="./images/devops.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>DevOps</p>
+                </div>        
+            <div class="card">
+                <div class="icon"><img src="./images/kernel.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Kernel development</p>
+            </div>    
+        <div class="card">
+                <div class="icon"><img src="./images/network-switch.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Network</p>
+            </div> 
+            <div class="card">
+                <div class="icon"><img src="./images/game-development.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                <p>Game Development</p>
+                </div>    
+            <div class="card">
+                    <div class="icon"><img src="./images/ui.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>UI/UX</p>
+                </div>    
+                <div class="card">
+                    <div class="icon"><img src="./images/server.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>Cloud</p>
+                </div>    
+            <div class="card">
+                    <div class="icon"><img src="./images/ux.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>Front End</p>
+                </div>    
+            <div class="card">
+                    <div class="icon"><img src="./images/analyzing.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>Data Analysis</p>
+                </div>    
+            <div class="card">
+                    <div class="icon"><img src="./images/iot.png" alt="html" style="width: 140px; padding-top: 50px;"></div>
+                    <p>Internet of things</p>
+                </div>    
+                       
+        </div>
+    </section>
+</body>
+</html>
