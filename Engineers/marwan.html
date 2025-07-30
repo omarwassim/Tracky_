@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marwan Hassan Morsi - CV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body {
+      background-image: linear-gradient(rgba(3, 28, 41, 0.85), rgba(3, 28, 41, 0.85)), url(../images/Earth.jpg);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      background-position: center center;
+      background-attachment: scroll;
+    }
+
+    header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    nav {
+      margin: 10px 0;
+    }
+
+    .nav-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-items li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .nav-items a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 5px 15px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .nav-items a:hover {
+      color: cyan;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(50vh - 60px);
+    }
+
+    .circular-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.7s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .circular-image:hover {
+      transform: scale(1.4);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #name {
+      margin-top: 15px;
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s ease;
+    }
+
+    #name:hover {
+      color: #0ff;
+      text-shadow: 0 5px 15px rgba(0, 255, 255, 0.8);
+      letter-spacing: 2px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .cv-content {
+      margin: 20px auto;
+      padding: 30px;
+      max-width: 900px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      line-height: 1.7;
+    }
+
+    .cv-content h2 {
+      color: #004d4d;
+      border-bottom: 2px solid #00cccc;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .cv-content p, .cv-content ul {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .cv-content ul {
+      padding-left: 20px;
+    }
+
+    .cv-content ul ul {
+      margin: 5px 0;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin: 10px 0 20px;
+      color: white;
+      font-size: 16px;
+    }
+
+    .contact-info a {
+      color: cyan;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #004d4d;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      width: 100%;
+      margin-top: auto;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #00ffff;
+      transform: scale(1.2);
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <nav>
+        <ul class="nav-items">
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Engineer">Engineer</a></li>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <div class="main-content">
+    <div class="image-container">
+      <img src="../Engineers/Photos/Marwan.jpg" alt="Marwan Hassan Morsi" class="circular-image" />
+      <h1 id="name">Marwan Hassan Morsi</h1>
+      <div class="contact-info">
+        📞 +20 0122 691 8121 | 📧 <a href="mailto:rmero575@gmail.com">rmero575@gmail.com</a><br />
+        🏠 Shubra El-Kheima, Cairo, Egypt
+      </div>
+    </div>
+
+    <div class="cv-content">
+      <!-- Profile -->
+      <h2>Profile</h2>
+      <p>
+        Intelligent Systems Engineering student at Helwan National University with strong technical skills in embedded systems, web development, and smart technologies. Passionate about building real-life solutions through AI, programming, and innovation. A fast learner, problem-solver, and team player eager to contribute to impactful tech projects.
+      </p>
+
+      <!-- Education -->
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Bachelor of Intelligent Systems Engineering</strong><br />
+          Helwan National University, Cairo, Egypt<br />
+          <em>Started: 2022 | Expected Graduation: January 2027</em>
+        </li>
+      </ul>
+
+      <!-- Experience -->
+      <h2>Experience</h2>
+      <ul>
+        <li>
+          <strong>Instructor (C++)</strong> – Helwan University Student Community (2024)<br />
+          <ul>
+            <li>Delivered training sessions covering C++ programming basics and OOP concepts.</li>
+            <li>Developed exercises and interactive tasks to improve practical understanding.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Training -->
+      <h2>Training</h2>
+      <ul>
+        <li>
+          <strong>AI Training Program</strong> – National Telecommunication Institute (NTI)<br />
+          <em>Feb – Mar 2025</em><br />
+          Topics: Python, Machine Learning, Deep Learning, AI Fundamentals
+        </li>
+      </ul>
+
+      <!-- Courses -->
+      <h2>Courses</h2>
+      <ul>
+        <li>
+          <strong>English Language Course</strong> (2024)<br />
+          Enhanced grammar, speaking, listening, and writing skills for technical and general communication.
+        </li>
+        <li>
+          <strong>Programming Courses</strong> (2023–2024)<br />
+          Covered core programming in C and Java, including data structures, algorithms, and OOP principles.
+        </li>
+      </ul>
+
+      <!-- Projects -->
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Digital Safe System</strong><br />
+          An embedded system using Atmega32 microcontroller, LCD, keypad, EEPROM, buzzer, and relay.<br />
+          Implemented password protection, alarm mechanism, and secure data storage.
+        </li>
+        <li>
+          <strong>Clothing Store Website</strong><br />
+          Front-end responsive website using HTML, CSS, and JavaScript.<br />
+          Includes product sections, navigation, and contact form.
+        </li>
+      </ul>
+
+      <!-- Skills -->
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Programming Languages:</strong> Python (Excellent), C (Very Good), Java, JavaScript</li>
+        <li><strong>Embedded Systems:</strong> Arduino (Very Good), Atmega32 (Very Good)</li>
+        <li><strong>Web Development:</strong> HTML & CSS (Excellent), JavaScript</li>
+        <li><strong>Database:</strong> SQL</li>
+        <li><strong>Smart Systems:</strong> Real-time monitoring, sensors, actuators, embedded control logic</li>
+      </ul>
+
+      <!-- Languages -->
+      <h2>Languages</h2>
+      <ul>
+        <li><strong>Arabic:</strong> Native</li>
+        <li><strong>English:</strong> Intermediate</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Connect with me:</p>
+    <div>
+      <!-- Replace # with real links if available -->
+      <a href="#" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:rmero575@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Marwan Hassan Morsi. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMind - Expert Track Affirmations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .track-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .track-grid::-webkit-scrollbar-track {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+        }
+
+        .track-grid::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+        }
+
+        .track-btn {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .track-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .track-btn.active {
+            background: linear-gradient(45deg, #38bdf8, #818cf8);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .affirmation-container {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .track-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        .affirmation-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: #38bdf8;
+            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.2);
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .track-name {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: #818cf8;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 25px 20px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .affirmation-text {
+                font-size: 1.5rem;
+                min-height: 130px;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .track-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                max-height: 250px;
+            }
+            
+            .track-btn {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                font-size: 1.7rem;
+            }
+            
+            .affirmation-text {
+                font-size: 1.3rem;
+                min-height: 120px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .track-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+                max-height: 200px;
+            }
+            
+            .track-btn {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1 class="title">Tech Expert Advices</h1>
+            
+            <div class="track-grid">
+                <button class="track-btn active" data-track="frontend">Front End</button>
+                <button class="track-btn" data-track="backend">Back End</button>
+                <button class="track-btn" data-track="mobile">Mobile App</button>
+                <button class="track-btn" data-track="uiux">UI/UX</button>
+                <button class="track-btn" data-track="network">Network</button>
+                <button class="track-btn" data-track="ai">AI</button>
+                <button class="track-btn" data-track="iot">IoT</button>
+                <button class="track-btn" data-track="cloud">Cloud</button>
+                <button class="track-btn" data-track="embedded">Embedded</button>
+                <button class="track-btn" data-track="devops">DevOps</button>
+                <button class="track-btn" data-track="kernel">Kernel Dev</button>
+                <button class="track-btn" data-track="cyber">Cyber Security</button>
+                <button class="track-btn" data-track="game">Game Dev</button>
+                <button class="track-btn" data-track="database">Databases</button>
+            </div>
+            
+            <div class="affirmation-container">
+                <div class="track-icon" id="trackIcon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                
+                <div class="affirmation-text" id="affirmationText">
+                    Master core web fundamentals, adopt TypeScript, optimize performance & accessibility, and use modern frameworks (React/Next.js) intentionally.
+                </div>
+                
+                <div class="track-name" id="trackName">Front End Development</div>
+            </div>
+            
+            <!-- <p class="subtitle">
+                Select your tech specialization to receive expert-crafted affirmations that inspire confidence and excellence in your field.
+            </p> -->
+        </div>
+    </div>
+
+    <script>
+        const affirmations = {
+    frontend: "Master core web fundamentals, adopt TypeScript, optimize performance & accessibility, and use modern frameworks (React/Next.js) intentionally.",
+    backend: "Design for scale and failure, secure APIs, optimize databases, and favor simplicity over premature microservices.",
+    mobile: "Build platform-native experiences, optimize for offline/battery, and test rigorously on real devices.",
+    uiux: "Solve real user problems through research, prototype early, and enforce consistency with design systems.",
+    network: "Understand protocols deeply, master packet flow, and automate troubleshooting with tools like Wireshark and tcpdump.",
+    ai: "Focus on data quality, not just models; deploy responsibly and monitor for drift and bias.",
+    iot: "Design end-to-end systems with power, security, and reliability in mind — real-world conditions are harsh.",
+    cloud: "Automate infrastructure with IaC, optimize cost, and architect for resilience across regions.",
+    embedded: "Master C, read datasheets, optimize for memory/power, and prioritize safety and real-time behavior.",
+    devops: "Automate CI/CD, enforce GitOps, and build observability (logs, metrics, traces) into every pipeline.",
+    kernel: "Study the Linux kernel source, write safe C code, debug with ftrace/KGDB, and contribute upstream with rigor.",
+    cyber: "Think like an attacker: secure code, enforce least privilege, automate vulnerability scanning, and assume breach.",
+    game: "Master game loops, physics, and rendering; use Unity/Unreal for scale or Godot for lightweight, open-source control.",
+    database: "Go beyond CRUD — master indexing, transactions, replication, and choose the right model (SQL vs NoSQL) for the use case."
+};
+
+const icons = {
+    frontend: "fas fa-laptop-code",
+    backend: "fas fa-server",
+    mobile: "fas fa-mobile-alt",
+    uiux: "fas fa-pencil-ruler",
+    network: "fas fa-network-wired",
+    ai: "fas fa-robot",
+    iot: "fas fa-microchip",
+    cloud: "fas fa-cloud",
+    embedded: "fas fa-microchip",
+    devops: "fas fa-cogs",
+    kernel: "fas fa-code-branch",
+    cyber: "fas fa-shield-alt",
+    game: "fas fa-gamepad",
+    database: "fas fa-database"
+};
+
+const trackNames = {
+    frontend: "Front End Development",
+    backend: "Back End Development",
+    mobile: "Mobile Application",
+    uiux: "UI/UX Design",
+    network: "Network Engineering",
+    ai: "Artificial Intelligence",
+    iot: "Internet of Things",
+    cloud: "Cloud Computing",
+    embedded: "Embedded Systems",
+    devops: "DevOps Engineering",
+    kernel: "Kernel Development",
+    cyber: "Cyber Security",
+    game: "Game Development",
+    database: "Database Engineering"
+};
+        const trackButtons = document.querySelectorAll('.track-btn');
+        const affirmationText = document.getElementById('affirmationText');
+        const trackIcon = document.getElementById('trackIcon');
+        const trackName = document.getElementById('trackName');
+
+        function updateAffirmation(track) {
+            // Update text with fade animation
+            affirmationText.style.opacity = '0';
+            trackIcon.style.opacity = '0';
+            trackName.style.opacity = '0';
+            
+            setTimeout(() => {
+                affirmationText.textContent = affirmations[track];
+                trackIcon.innerHTML = `<i class="${icons[track]}"></i>`;
+                trackName.textContent = trackNames[track];
+                affirmationText.style.opacity = '1';
+                trackIcon.style.opacity = '1';
+                trackName.style.opacity = '1';
+            }, 300);
+        }
+
+        trackButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                trackButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get track from data attribute
+                const track = button.getAttribute('data-track');
+                
+                // Update affirmation
+                updateAffirmation(track);
+            });
+        });
+
+        // Add initial animation
+        setTimeout(() => {
+            affirmationText.style.transition = 'all 0.5s ease';
+            trackIcon.style.transition = 'all 0.5s ease';
+            trackName.style.transition = 'all 0.5s ease';
+        }, 1000);
+    </script>
+</body>
+</html>
