@@ -1,3 +1,6 @@
+<img width="1889" height="910" alt="image" src="https://github.com/user-attachments/assets/c3fa9d43-7128-4d61-8f1d-495378fe1369" />
+
+
 # Tracky - Personalized Learning Paths
 
 
